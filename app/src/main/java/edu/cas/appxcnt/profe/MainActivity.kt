@@ -20,7 +20,7 @@ class MainActivity : AppCompatActivity() {
     fun infoVersion (): Unit//como el VOID de Java no devuelve nada
     {
           val strVersion : String = "VERSIÓN " +Build.VERSION.RELEASE + " API " + Build.VERSION.SDK_INT
-          Log.d("MIAPP", "Versión movil = ${strVersion}")
+          Log.d(Constantes.ETIQUETA_LOG ,"Versión movil = ${strVersion}")
 
     }
 
