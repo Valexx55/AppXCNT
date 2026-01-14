@@ -12,9 +12,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppXCNT">
         <activity
+            android:name=".ResultadoImcActivity"
+            android:exported="false" />
+        <activity
             android:name=".ImcActivity"
             android:exported="true">
-
             <intent-filter>
 
                 <!--
@@ -29,20 +31,23 @@
         <activity
             android:name=".SumaActivity"
             android:exported="true">
-<!--            <intent-filter>-->
 
-<!--                &lt;!&ndash;-->
-<!--                estos dos atributos el action y el category indican a Android-->
-<!--                que mi app arranca por esta pantalla-->
-<!--                &ndash;&gt;-->
-<!--                <action android:name="android.intent.action.MAIN" />-->
+            <!-- <intent-filter> -->
 
-<!--                <category android:name="android.intent.category.LAUNCHER" />-->
-<!--            </intent-filter>-->
+
+            <!-- &lt;!&ndash; -->
+            <!-- estos dos atributos el action y el category indican a Android -->
+            <!-- que mi app arranca por esta pantalla -->
+            <!-- &ndash;&gt; -->
+            <!-- <action android:name="android.intent.action.MAIN" /> -->
+
+
+            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+            <!-- </intent-filter> -->
         </activity>
         <activity
             android:name=".MainActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
     </application>
 
 </manifest>

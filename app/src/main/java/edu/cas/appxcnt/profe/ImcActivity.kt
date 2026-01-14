@@ -1,5 +1,6 @@
 package edu.cas.appxcnt.profe
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
@@ -34,6 +35,11 @@ class ImcActivity : AppCompatActivity() {
         val resultadoImcNum = calculoIMCNumerico(peso, altura)
         // MOSTRAR
         mostrarResultadoImcNum(resultadoImcNum)
+        //TRANSITAMOS A RESULTADO ACTIVITY
+        //INTENE EXPLÍCITO
+        val intent : Intent = Intent(this, ResultadoImcActivity::class.java)
+        intent.putExtra("resultado_imc", resultadoImcNum)
+        startActivity(intent)
     }
 
     fun obtenerPeso (): Float
