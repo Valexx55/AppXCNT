@@ -28,7 +28,63 @@ fun main() {
     println("The movie ticket price for a person aged $senior is ${ticketPriceWhenSinSubject(senior, isMonday)}.")
 }*/
 
+fun convertirTemperaturaDeCelsiusAFarenheit (temperaturaInicial: Double) : Double
+{
+    var temperaturaFinal: Double = 0.0
+
+        temperaturaFinal = (temperaturaInicial *9)/5+32
+
+    return  temperaturaFinal
+}
+
 fun main() {
+
+    var funcionDeCelisiusAFaranheitLambda = {temperaturaInicial: Double -> (temperaturaInicial *9)/5+32}
+
+
+    var funcionDeCelisiusAFaranheitAnonima = fun (temperaturaInicial: Double):Double {
+        var temperaturaFinal: Double = 0.0
+
+        temperaturaFinal = (temperaturaInicial *9)/5+32
+
+        return  temperaturaFinal
+    }
+
+
+
+    printFinalTemperature(
+        27.0,
+        "Celsius Flambda",
+        "Fahrenheit Flambda",
+        funcionDeCelisiusAFaranheitLambda //
+    )
+
+    printFinalTemperature(
+        27.0,
+        "Celsius Referencia",
+        "Fahrenheit Referenca",
+        ::convertirTemperaturaDeCelsiusAFarenheit
+    )
+
+    printFinalTemperature(
+        27.0,
+        "Celsius FAnónima",
+        "Fahrenheit FAnónima",
+        funcionDeCelisiusAFaranheitAnonima //
+    )
+
+    printFinalTemperature(
+        27.0,
+        "Celsius FAnónima2",
+        "Fahrenheit FAnónima2",
+        fun(temperaturaInicial: Double): Double {
+            var temperaturaFinal: Double = 0.0
+
+            temperaturaFinal = (temperaturaInicial * 9) / 5 + 32
+
+            return temperaturaFinal
+        })
+
     //DE Celsius a Faranheit
     printFinalTemperature(
         27.0,
@@ -36,6 +92,14 @@ fun main() {
         "Fahrenheit",
         {temperaturaInicial -> (temperaturaInicial*9)/5+32} //
     )
+
+    printFinalTemperature(
+        27.0,
+        "Celsius Trail",
+        "Fahrenheit Trail")
+        {temperaturaInicial -> (temperaturaInicial*9)/5+32} //trailing function
+
+
  //XAVIER
     printFinalTemperature(
         350.0,
