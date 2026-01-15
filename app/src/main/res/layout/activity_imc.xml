@@ -9,7 +9,7 @@
 
     <EditText
         android:id="@+id/editTextPeso"
-        android:hint="Intro peso kg"
+        android:hint="@string/hintpeso"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="128dp"
@@ -21,7 +21,7 @@
 
     <EditText
         android:id="@+id/editTextAltura"
-        android:hint="Intro altura m"
+        android:hint="@string/hintaltura"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
@@ -37,7 +37,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="56dp"
         android:onClick="calcularImc"
-        android:text="CALCULAR IMC"
+        android:text="@string/botoncalculoimc"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextAltura" />

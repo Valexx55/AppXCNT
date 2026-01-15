@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">AppXCNTuk</string>
+    <string name="hintpeso">Enter weight kg</string>
+    <string name="hintaltura">Enter height m</string>
+    <string name="botoncalculoimc">Calculate BMI</string>
+    <string name="mensaje_resultado_suma">The result of adding\n%1$d and %2$d is %3$d</string>
+</resources>

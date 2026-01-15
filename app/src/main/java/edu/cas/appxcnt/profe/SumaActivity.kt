@@ -27,17 +27,36 @@ class SumaActivity : AppCompatActivity() {
     fun sumar(view: View)
     {
         Log.d(Constantes.ETIQUETA_LOG, "El usuario ha tocado sumar")
-        //TODO acceder al valor de la caja 1
         val cajaNum1 = findViewById<EditText>(R.id.etn1)
         val numero1 = cajaNum1.text.toString().toInt()
-        //TODO acceder al valor de la caja 2
         val cajaNum2 = findViewById<EditText>(R.id.etn2)
         val numero2 = cajaNum2.text.toString().toInt()
-        //TODO Sumarlos e informalos
         val resultado = "LA SUMA ES ${numero1 + numero2}"
+        val n3 = numero1+numero2
+        var resultadoi18n = resources.getString(R.string.mensaje_resultado_suma, numero1, numero2, n3 )
 
-        val notificacionToast = Toast.makeText(this, resultado, Toast.LENGTH_LONG)
+
+        //val notificacionToast = Toast.makeText(this, resultado, Toast.LENGTH_LONG)
+        val notificacionToast = Toast.makeText(this, resultadoi18n, Toast.LENGTH_LONG)
         notificacionToast.show()
+
+        /**
+         *
+         * NOTAS i18n parámetros variables
+         *
+         *
+         * | Tipo                 | Placeholder | Ejemplo  |
+         * | -------------------- | ----------- | -------- |
+         * | String               | `%s`        | `%1$s`   |
+         * | Entero (Int)         | `%d`        | `%2$d`   |
+         * | Long                 | `%d`        | `%1$d`   |
+         * | Float / Double       | `%f`        | `%1$.2f` |
+         * | Carácter             | `%c`        | `%1$c`   |
+         * | Boolean (como texto) | `%b`        | `%1$b`   |
+         * | Hexadecimal          | `%x` / `%X` | `%1$x`   |
+         * | Octal                | `%o`        | `%1$o`   |
+         *
+         */
 
     }
 }

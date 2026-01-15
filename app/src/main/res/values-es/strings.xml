@@ -1,5 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">AppXCNT</string>
+    <string name="app_name">AppXCNTes</string>
     <string name="hintpeso">Intro peso kg</string>
     <string name="hintaltura">Intro altura m</string>
     <string name="botoncalculoimc">Calcular IMC</string>
