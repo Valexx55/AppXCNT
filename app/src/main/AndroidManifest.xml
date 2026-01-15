@@ -12,31 +12,42 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppXCNT">
         <activity
+            android:name=".MainMenuActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".AdivinaActivity"
+            android:exported="false" />
+        <activity
             android:name=".ResultadoImcActivity"
             android:exported="false" />
         <activity
             android:name=".ImcActivity"
             android:exported="true">
-            <!--<intent-filter>-->
 
-                <!--
+            <!-- <intent-filter> -->
+
+
+            <!--
                 estos dos atributos el action y el category indican a Android
                 que mi app arranca por esta pantalla
 
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
-                </intent-filter>-->
+                </intent-filter>
+            -->
 
         </activity>
         <activity
             android:name=".SumaActivity"
             android:exported="true">
 
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".MainActivity"
