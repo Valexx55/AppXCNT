@@ -12,6 +12,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import edu.cas.appxcnt.profe.databinding.ActivityAdivinaBinding
 import kotlin.random.Random
 
 class AdivinaActivity : AppCompatActivity() {
@@ -27,6 +28,43 @@ class AdivinaActivity : AppCompatActivity() {
     lateinit var cajaNumeroUsuario: EditText // tipos "complejos"/clase puedo usar el lateinit var
 
     lateinit var cajaTextoVidas: TextView
+
+    lateinit var binding: ActivityAdivinaBinding //demo de uso de ViewBinding
+
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        binding = ActivityAdivinaBinding.inflate(layoutInflater)//demo de uso de ViewBinding
+        enableEdgeToEdge()
+        setContentView(binding.root)
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
+            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
+            insets
+        }
+
+        //si bundle es null, es que está vacío --> la primera que se ejecuta
+        //si bundle != null, es que ya estaba en la partida
+
+        cajaTextoVidas =  findViewById<TextView>(R.id.numVidas)
+        cajaNumeroUsuario = findViewById<EditText>(R.id.numeroUsuario)
+
+        if (savedInstanceState!=null)
+        {
+            //obtenemos los valores
+        }
+
+        //?: operador Elvis
+        //?. safe null access
+        //!! not null operator
+        this.numeroSecreto =  savedInstanceState?.getInt("num_secreto") ?: generarNumeroSecreto()
+        this.numeroVidas = savedInstanceState?.getInt("num_vidas") ?: Constantes.NUM_VIDAS_JUEGO_ADIVINA
+
+        //cajaTextoVidas.text = "$numeroVidas VIDAS"
+        binding.numVidas.text = "$numeroVidas VIDAS" //demo de uso de ViewBinding - Vinculación de Vistas
+        Log.d(Constantes.ETIQUETA_LOG, "Num secreto = $numeroSecreto")
+    }
+
 
     override fun onStart() {
         super.onStart()
@@ -52,37 +90,6 @@ class AdivinaActivity : AppCompatActivity() {
     override fun onDestroy() {
         super.onDestroy()
         Log.d(Constantes.ETIQUETA_LOG, "En onDestroy()")
-    }
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
-        setContentView(R.layout.activity_adivina)
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
-        }
-
-        //si bundle es null, es que está vacío --> la primera que se ejecuta
-        //si bundle != null, es que ya estaba en la partida
-
-        cajaTextoVidas =  findViewById<TextView>(R.id.numVidas)
-        cajaNumeroUsuario = findViewById<EditText>(R.id.numeroUsuario)
-
-        if (savedInstanceState!=null)
-        {
-            //obtenemos los valores
-        }
-
-        //?: operador Elvis
-        //?. safe null access
-        //!! not null operator
-        this.numeroSecreto =  savedInstanceState?.getInt("num_secreto") ?: generarNumeroSecreto()
-        this.numeroVidas = savedInstanceState?.getInt("num_vidas") ?: Constantes.NUM_VIDAS_JUEGO_ADIVINA
-
-        cajaTextoVidas.text = "$numeroVidas VIDAS"
-        Log.d(Constantes.ETIQUETA_LOG, "Num secreto = $numeroSecreto")
     }
 
     fun generarNumeroSecreto(): Int
