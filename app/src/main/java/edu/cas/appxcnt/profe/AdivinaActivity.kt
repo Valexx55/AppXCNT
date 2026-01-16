@@ -26,6 +26,33 @@ class AdivinaActivity : AppCompatActivity() {
 
     lateinit var cajaNumeroUsuario: EditText // tipos "complejos"/clase puedo usar el lateinit var
 
+    lateinit var cajaTextoVidas: TextView
+
+    override fun onStart() {
+        super.onStart()
+        Log.d(Constantes.ETIQUETA_LOG, "En onStart()")
+    }
+
+    override fun onResume() {
+        super.onResume()
+        Log.d(Constantes.ETIQUETA_LOG, "En onResume()")
+    }
+
+    override fun onPause() {
+        super.onPause()
+        Log.d(Constantes.ETIQUETA_LOG, "En onPause()")
+    }
+
+    override fun onStop() {
+        super.onStop()
+        Log.d(Constantes.ETIQUETA_LOG, "En onStop()")
+    }
+
+
+    override fun onDestroy() {
+        super.onDestroy()
+        Log.d(Constantes.ETIQUETA_LOG, "En onDestroy()")
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,9 +64,24 @@ class AdivinaActivity : AppCompatActivity() {
             insets
         }
 
-         cajaNumeroUsuario = findViewById<EditText>(R.id.numeroUsuario)
-        this.numeroSecreto = generarNumeroSecreto()
+        //si bundle es null, es que está vacío --> la primera que se ejecuta
+        //si bundle != null, es que ya estaba en la partida
 
+        cajaTextoVidas =  findViewById<TextView>(R.id.numVidas)
+        cajaNumeroUsuario = findViewById<EditText>(R.id.numeroUsuario)
+
+        if (savedInstanceState!=null)
+        {
+            //obtenemos los valores
+        }
+
+        //?: operador Elvis
+        //?. safe null access
+        //!! not null operator
+        this.numeroSecreto =  savedInstanceState?.getInt("num_secreto") ?: generarNumeroSecreto()
+        this.numeroVidas = savedInstanceState?.getInt("num_vidas") ?: Constantes.NUM_VIDAS_JUEGO_ADIVINA
+
+        cajaTextoVidas.text = "$numeroVidas VIDAS"
         Log.d(Constantes.ETIQUETA_LOG, "Num secreto = $numeroSecreto")
     }
 
@@ -78,7 +120,7 @@ class AdivinaActivity : AppCompatActivity() {
         {
             Log.d (Constantes.ETIQUETA_LOG, "El usuario no ha acertado")
             this.numeroVidas = this.numeroVidas-1
-            findViewById<TextView>(R.id.numVidas).text = "$numeroVidas VIDAS"
+            cajaTextoVidas.text = "$numeroVidas VIDAS"
             if (this.numeroVidas==0)
             {
                 //findViewById<ImageButton>(R.id.botonReinicio).visibility = View.VISIBLE
@@ -119,5 +161,13 @@ class AdivinaActivity : AppCompatActivity() {
     fun informarMayor ()
     {
         Toast.makeText(this, "El número buscado es mayor", Toast.LENGTH_LONG).show()
+    }
+
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        Log.d(Constantes.ETIQUETA_LOG, "Actividad destruyéndose, guardando cosas ...")
+        outState.putInt("num_secreto", this.numeroSecreto)
+        outState.putInt("num_vidas", this.numeroVidas)
     }
 }
