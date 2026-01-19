@@ -1,10 +1,12 @@
 package edu.cas.appxcnt.profe
 
+import android.content.Context
 import android.os.Bundle
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
+import android.view.inputmethod.InputMethodManager
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageButton
@@ -186,7 +188,26 @@ class AdivinaActivity : AppCompatActivity() {
             .asGif()
             .load(refImagen)
             .into(binding.imagenAdivina)
+
+        bajarScroll()//cuando acabe, bajemos al final de la pantalla
+        hideKeyboard()//ocultar el teclado
+
     }
+
+    fun bajarScroll ()
+
+    {
+        binding.main.post {
+            binding.main.smoothScrollTo(0, binding.main.bottom)
+        }
+    }
+
+    fun hideKeyboard() {
+        val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        val view = currentFocus ?: View(this)
+        imm.hideSoftInputFromWindow(view.windowToken, 0)
+    }
+
 
 
     fun informarGameOver()
