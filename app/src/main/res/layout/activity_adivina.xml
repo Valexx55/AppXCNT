@@ -61,14 +61,12 @@
         android:layout_marginTop="48dp"/>
 
     <ImageView
-        android:layout_gravity="center"
         android:id="@+id/imagenAdivina"
         android:layout_width="200dp"
         android:layout_height="200dp"
+        android:layout_gravity="center"
         android:layout_marginTop="20dp"
-        android:layout_marginBottom="40dp"/>
-
-
+        android:layout_marginBottom="40dp" />
 
 
 </LinearLayout>

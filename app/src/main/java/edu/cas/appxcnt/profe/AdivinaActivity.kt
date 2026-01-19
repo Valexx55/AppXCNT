@@ -2,6 +2,8 @@ package edu.cas.appxcnt.profe
 
 import android.os.Bundle
 import android.util.Log
+import android.view.Menu
+import android.view.MenuItem
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
@@ -12,6 +14,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.bumptech.glide.Glide
 import edu.cas.appxcnt.profe.databinding.ActivityAdivinaBinding
 import kotlin.random.Random
 
@@ -31,6 +34,7 @@ class AdivinaActivity : AppCompatActivity() {
 
     lateinit var binding: ActivityAdivinaBinding //demo de uso de ViewBinding
 
+    lateinit var menuBarra : Menu
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -102,6 +106,12 @@ class AdivinaActivity : AppCompatActivity() {
         return numeroSecretoLocal
     }
 
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        this.menuBarra = menu!! //me guardo una referencia al menú, para luego poder modificarlo sobre la marcha
+        return super.onCreateOptionsMenu(menu)
+    }
+
     fun intentoAdivina(view: View) {
         Log.d (Constantes.ETIQUETA_LOG, "El usuario ha dado a probar")
 
@@ -122,6 +132,8 @@ class AdivinaActivity : AppCompatActivity() {
                // pintarReinicioEnMenu()
                 //
                 haGanado = true
+                actulizarImangen(R.drawable.imagen_victoria)
+                pintarReinicioEnMenu ()
             }
         }
         if (!haGanado) //haGando == false
@@ -133,11 +145,47 @@ class AdivinaActivity : AppCompatActivity() {
             {
                 //findViewById<ImageButton>(R.id.botonReinicio).visibility = View.VISIBLE
                 informarGameOver()
-                //pintarReinicioEnMenu()
+                actulizarImangen(R.drawable.imagen_derrota)
+                pintarReinicioEnMenu ()
+                 //pintarReinicioEnMenu()
                 //findViewById<Button>(R.id.botonReinicio).visibility = View.VISIBLE
             }
         }
 
+    }
+
+    fun reiniciarPartida ()
+    {
+        finish()
+        startActivity(intent)
+
+        //recreate() //Opción válida pero llama a saveInstanceState
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId)
+        {
+            1 -> {
+                reiniciarPartida ()
+                this.menuBarra.clear()//borramos el menú
+            }
+        }
+        return super.onOptionsItemSelected(item)
+    }
+
+    fun pintarReinicioEnMenu ()
+    {
+        this.menuBarra.add(Menu.NONE, 1, 1, "Reiniciar")
+            .setIcon(R.drawable.outline_autorenew_24)
+            .setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS)
+    }
+
+    fun actulizarImangen (refImagen: Int)
+    {   //Gracias a la librería de glide puedo incrustar un gif en un image view
+        Glide.with(this)
+            .asGif()
+            .load(refImagen)
+            .into(binding.imagenAdivina)
     }
 
 

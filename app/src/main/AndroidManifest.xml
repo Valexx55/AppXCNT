@@ -21,6 +21,7 @@
             </intent-filter>
         </activity>
         <activity
+            android:theme="@style/Theme.AppXCNTAppBar"
             android:label="Juego Adivina"
             android:name=".AdivinaActivity"
             android:exported="false" />

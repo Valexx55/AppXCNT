@@ -20,8 +20,8 @@ class MainMenuActivity : AppCompatActivity() {
             insets
         }
 
-        val intent = Intent(this, ImcActivity::class.java)
-        //val intent = Intent(this, AdivinaActivity::class.java)
+        //val intent = Intent(this, ImcActivity::class.java)
+        val intent = Intent(this, AdivinaActivity::class.java)
         startActivity(intent)
     }
 }
