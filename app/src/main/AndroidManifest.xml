@@ -21,12 +21,17 @@
             </intent-filter>
         </activity>
         <activity
+            android:label="Juego Adivina"
             android:name=".AdivinaActivity"
             android:exported="false" />
         <activity
             android:name=".ResultadoImcActivity"
             android:exported="false" />
+        <!-- en esta actividad, defino otro tema distinto al
+        resto de las actividades de la aplicación -->
         <activity
+            android:theme="@style/Theme.AppXCNTAppBar"
+            android:label="Calcula IMC"
             android:name=".ImcActivity"
             android:exported="true">
 

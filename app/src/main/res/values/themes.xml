@@ -6,4 +6,5 @@
     </style>
 
     <style name="Theme.AppXCNT" parent="Base.Theme.AppXCNT" />
+    <style name="Theme.AppXCNTAppBar" parent="Theme.Material3.DayNight" />
 </resources>
