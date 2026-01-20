@@ -22,7 +22,9 @@ class MainMenuActivity : AppCompatActivity() {
 
         //val intent = Intent(this, ImcActivity::class.java)
         //val intent = Intent(this, AdivinaActivity::class.java)
-        val intent = Intent(this, SpinnerVisibilityActivity::class.java)
+        //val intent = Intent(this, SpinnerVisibilityActivity::class.java)
+        //intent explícito
+        val intent = Intent(this, BusquedaActivity::class.java)
         startActivity(intent)
     }
 }

@@ -5,6 +5,7 @@ import android.util.Log
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -49,7 +50,10 @@ class SpinnerVisibilityActivity : AppCompatActivity(), AdapterView.OnItemSelecte
         //TODO ("Not yet implemented")
         //OJO : caso especial sin llegar a seleccionar una opción, el spinner salta (se invoca este método)
 
-        Log.d(Constantes.ETIQUETA_LOG, "onItemSelected spinner posición = $position")
+
+        val textViewSeleccionado = (view as TextView) //casting
+        Log.d(Constantes.ETIQUETA_LOG, "onItemSelected spinner posición = $position Texto = ${textViewSeleccionado.text}")
+
         when (position)
         {
             0 -> binding.imagenMuestra.visibility = View.VISIBLE
