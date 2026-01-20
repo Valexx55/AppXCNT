@@ -2,12 +2,14 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
-
+    <uses-permission android:name="android.permission.INTERNET"/>
     <queries>
+
         <!-- Queeremos tener visibilidad a los navegadores de nuestra máquina desde esta app -->
         <!-- Declarar que quieres hacer consultas a aplicaciones de navegador -->
         <intent>
             <action android:name="android.intent.action.VIEW" />
+
             <data android:host="http" />
         </intent>
         <!--
@@ -16,6 +18,14 @@
         <package android:name="com.opera.browser" />
         -->
     </queries>
+    <queries>
+        <intent>
+            <action android:name="android.intent.action.MAIN" />
+
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent>
+    </queries>
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -25,6 +35,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppXCNT">
+        <activity
+            android:name=".WebViewActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+
+                <data android:host="cntg.xunta.gal"
+                     android:scheme="https"/>
+            </intent-filter>
+        </activity>
         <activity
             android:name=".BusquedaActivity"
             android:exported="false" />
@@ -36,7 +58,6 @@
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
