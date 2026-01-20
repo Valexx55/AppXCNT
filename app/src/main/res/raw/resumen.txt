@@ -1,0 +1,64 @@
+
+INSTALACIÓN/CONFIGURACIÓN (Android Studio, Git, Android Virtual Device)
+
+KOTLIN
+
+fun main()
+Tipos de Datos
+Estructuras de control (if, when)
+Funciones (lambda, trailing, referencia)
+Clases de datos (Song)
+Manejo de Coleccion (for each, filtros, etc)
+Interfaz / funcional
+Definición variables Const val var lateinit var
+
+ANDROID SDK
+
+APP: Paquete (id app)
+
+GRADLE: Gestor de ciclo de vida
+        Importación librería de terceros (Glide)
+
+MODULO vs PROYECTO: Un proyecto (app) puede estar divido en varios módulos
+
+LOG: Registar eventos
+
+LAYOUT: ConstraintLayout (modo UI)
+        LinearLayout (vertical/horizontal weight)
+        FrameLayout (vistas superpuestas)
+        Scrollview (desbordar pantallas pequeñas)
+
+ACTIVITY: Pantalla. Estatica XML (visual) Dinámica (kt)
+          Registro en el manifest
+          Ciclo de vida / Estado de actividad (onSaveInstaceState)
+          Callback/Listener
+          Cambio orientación (sensible/insesible -landscape-)
+          Reiniciar actividad (salir, finish, recreate)
+
+ALERT DIALOG: Diálgo con usuario
+
+INTENT: Para navegar entre pantallas
+        Implícito vs Explícito
+        Como memoria intermedia
+
+VIEW: View vs ViewGroup (Layout)
+      TextView, EditText, WebView, Button, ImageButton
+      Spinner (caso especial de autoselección, se dispara automáticamente la primera vez)
+      Visibilidad de una vista: VISIBLE, INVISIBLE, GONE
+      ImageView
+
+APPBAR: Dibujada por el Tema
+
+TOAST: Notificaciones temporales "tostadas"
+
+MENÚ: En el app bar (res)
+      Item
+      onCreateOptionMenu (pintarlo)
+      onOptionItemSelected (detectar evento)
+
+I18N: Usamos la carpeta res/string para crear distintos ficheros con traducciones (locales)
+
+ADAPTER: "Proveedor de datos a una colección visual (lista, spinner)"
+
+PREMISOS: Declaración de Manifest
+          Permisos peligrosos / no
