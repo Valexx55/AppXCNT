@@ -29,11 +29,14 @@ LAYOUT: ConstraintLayout (modo UI)
         Scrollview (desbordar pantallas pequeñas)
 
 ACTIVITY: Pantalla. Estatica XML (visual) Dinámica (kt)
+          findViewById vs ViewBinding (Android Jetpack)
           Registro en el manifest
           Ciclo de vida / Estado de actividad (onSaveInstaceState)
           Callback/Listener
           Cambio orientación (sensible/insesible -landscape-)
           Reiniciar actividad (salir, finish, recreate)
+
+INFLAR: PASAR DE XML A RENDERIZAR E ISNTANCIAR VISTAS
 
 ALERT DIALOG: Diálgo con usuario
 
