@@ -65,3 +65,17 @@ ADAPTER: "Proveedor de datos a una colección visual (lista, spinner)"
 
 PREMISOS: Declaración de Manifest
           Permisos peligrosos / no
+
+HTTP: IMPORTAR CONFIGURAR RETROFIT (SERVICIO, INTERFAZ)
+      COMPROBAR SI HAY INTERNET (CONECTIVTY MANAGGER)
+      CREAR LA CLASE DE DATOS / MODELO (JSON) - PLUGIN DE ANDROID STUDIO
+
+      PASOS:
+
+      1) si hay internet
+            abro corrutina
+                    invoco a Retrofit
+            cierro corrutina
+
+         si no hay internet
+            informar al usuario
