@@ -2,7 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
     <queries>
 
         <!-- Queeremos tener visibilidad a los navegadores de nuestra máquina desde esta app -->
@@ -36,15 +38,20 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppXCNT">
         <activity
+            android:name=".productos.ListaProductosActivity"
+            android:exported="false" />
+        <activity
             android:name=".WebViewActivity"
             android:exported="true">
             <intent-filter>
-                <action android:name="android.intent.action.VIEW"/>
-                <category android:name="android.intent.category.DEFAULT"/>
-                <category android:name="android.intent.category.BROWSABLE"/>
+                <action android:name="android.intent.action.VIEW" />
 
-                <data android:host="cntg.xunta.gal"
-                     android:scheme="https"/>
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:host="cntg.xunta.gal"
+                    android:scheme="https" />
             </intent-filter>
         </activity>
         <activity
@@ -58,6 +65,7 @@
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

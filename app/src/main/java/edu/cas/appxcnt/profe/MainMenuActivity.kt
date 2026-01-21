@@ -10,9 +10,10 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.net.toUri
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import edu.cas.appxcnt.profe.productos.ListaProductosActivity
 
 class MainMenuActivity : AppCompatActivity() {
-    //Aquí irá un menú...
+    //Aquí irá un menú lateral...
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,18 +31,20 @@ class MainMenuActivity : AppCompatActivity() {
         //intent explícito
         //val intent = Intent(this, BusquedaActivity::class.java)
         //val intent = Intent(this, WebViewActivity::class.java)
-        val intentWebCnt = Intent(Intent.ACTION_VIEW, URL_CNT.toUri())//"QUIERO VER; UNA WEB"
-        if (intentWebCnt.resolveActivity(packageManager)!=null)
-        {
-            Log.d(Constantes.ETIQUETA_LOG, "Este dispositivo sí cuenta con al menos una app que puede ver sitios web")
-            //CHOOSER
-            //startActivity(intentBusqueda)
-            startActivity(Intent.createChooser(intentWebCnt, "Elige app"))
-        } else {
-            //Emoticono windows + . punto
-            Toast.makeText(this, "No se ha detectado un app para ver la página de la Xunta 😥  ", Toast.LENGTH_LONG ).show()
-        }
-        //startActivity(intent)
+//        val intentWebCnt = Intent(Intent.ACTION_VIEW, URL_CNT.toUri())//"QUIERO VER; UNA WEB"
+//        if (intentWebCnt.resolveActivity(packageManager)!=null)
+//        {
+//            Log.d(Constantes.ETIQUETA_LOG, "Este dispositivo sí cuenta con al menos una app que puede ver sitios web")
+//            //CHOOSER
+//            //startActivity(intentBusqueda)
+//            startActivity(Intent.createChooser(intentWebCnt, "Elige app"))
+//        } else {
+//            //Emoticono windows + . punto
+//            Toast.makeText(this, "No se ha detectado un app para ver la página de la Xunta 😥  ", Toast.LENGTH_LONG ).show()
+//        }
+
+        val intent = Intent(this, ListaProductosActivity::class.java)
+        startActivity(intent)
         /**
          * TODO probar un intent para compartir mensajes por whatssapp (u otras apps quitando el package)
          *   Log.d(this.getClass().getCanonicalName(), "El usuario le ha dado compartir");
