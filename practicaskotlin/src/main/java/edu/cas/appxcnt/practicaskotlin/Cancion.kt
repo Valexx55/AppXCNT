@@ -22,6 +22,8 @@ data class Cancion(val titulo:String, val artista:String? = null, val anio:Int, 
     }
 }
 fun main() {
+
+    val cancion0 = Cancion(titulo="Hola mundo", anio= 2015, reproducciones =  300 )
     val cancion1 = Cancion("Vaina loca", "Fuego", 2008, 5000)
     val cancion2 = Cancion("5ª Sinfonía", "Bethoven", 1700, 10000)
     val cancion3 = Cancion("Show must go on", "Queen", 1989, 300)

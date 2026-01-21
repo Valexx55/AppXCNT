@@ -79,3 +79,13 @@ HTTP: IMPORTAR CONFIGURAR RETROFIT (SERVICIO, INTERFAZ)
 
          si no hay internet
             informar al usuario
+
+SERVICIO: PROCESEO NO VISUAL
+          2 TIPOS: DEL SISTEMA Y NO
+          Para acceder a los servicios del sistema (ConnectivityManager, NotificationManager, AlarmManager..)
+          necesito el contexto
+
+PERMISOS: Algunas APIS acciones en el télefono requerien permisos
+          2 tipos: peligrosos y no
+          Cualquiera, hay que describirlo en el Manifest
+          si son peligrosos (pedirlos en ejecución)
