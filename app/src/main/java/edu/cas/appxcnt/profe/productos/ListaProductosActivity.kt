@@ -13,11 +13,13 @@ import androidx.core.view.WindowInsetsCompat
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.slider.Slider
 import edu.cas.appxcnt.profe.Constantes
 import edu.cas.appxcnt.profe.R
 import edu.cas.appxcnt.profe.util.RedUtil
 import kotlinx.coroutines.cancel
 import kotlinx.coroutines.launch
+import kotlin.math.roundToInt
 
 class ListaProductosActivity : AppCompatActivity() {
 
@@ -56,6 +58,7 @@ class ListaProductosActivity : AppCompatActivity() {
                     mostrarListaProductos ()
                     //oculto la progress bar una vez que se han mostrado los datos
                     this@ListaProductosActivity.findViewById<ProgressBar>(R.id.progressBar).visibility = View.GONE
+                    dibujarEiniciarSlider()
                 }catch (excepcion: Exception)
                 {
                     Log.e(Constantes.ETIQUETA_LOG, "Error al conectar con servidor de productos", excepcion)
@@ -83,6 +86,33 @@ class ListaProductosActivity : AppCompatActivity() {
 
     }
 
+    fun dibujarEiniciarSlider ()
+    {
+
+        val slider = findViewById<Slider>(R.id.sliderprecio)
+
+        //obtener min, maximo y media
+        val precioMasAlto = this.listaProductos.maxOf { it.price.toFloat() }
+        val precioMasBajo = this.listaProductos.minOf { it.price.toFloat() }
+        val precioMedio = this.listaProductos.map { it.price.toFloat() }.average()
+
+
+        slider.setLabelFormatter { "${it.roundToInt()} precio máx" }
+
+        slider.addOnChangeListener { slider, value, fromUser ->
+            Log.d(Constantes.ETIQUETA_LOG, "Valor actual $value del usuario? $fromUser")
+            var listapfiltrada = this.listaProductos.filter { it.price.toFloat()<=value }
+            this.adapter.listaProductos = listapfiltrada
+            this.adapter.notifyDataSetChanged() //"emite una señal, avisando que hay una lista nueva y el Recycler se repinta"
+        }
+
+        slider.valueFrom = precioMasBajo
+        slider.valueTo = precioMasAlto
+        slider.value = precioMasAlto
+
+        slider.visibility = View.VISIBLE
+    }
+
     fun mostrarListaProductos () {
         //TODO mostrar la lista RX
         //1 el xml de la fila / item
@@ -97,6 +127,5 @@ class ListaProductosActivity : AppCompatActivity() {
         //rV.layoutManager = LinearLayoutManager(this, RecyclerView.HORIZONTAL, true)
     }
 
-    //TODO: haced una cabecera nombre de las columnas para este listado (ID Nombre PRECIO FOto) 10'
 
 }
