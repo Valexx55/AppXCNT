@@ -112,6 +112,8 @@ class ListaProductosActivity : AppCompatActivity() {
 
         //slider.stepSize = 1f//nos dibuja en el slider ese rango, pero oojo porque debe cuadrar los valores mínimo y máximo asignados al slider
 
+        slider.stepSize = 67f//también podría valer 13 o 1 con estos datos concretos
+
         Log.d(Constantes.ETIQUETA_LOG, "Step size = ${slider.stepSize}")
 
         slider.visibility = View.VISIBLE
