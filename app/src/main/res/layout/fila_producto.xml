@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="70dp">
+    
+    <TextView
+        android:id="@+id/idproducto"
+        android:text="1"
+        android:gravity="center"
+        android:textSize="20sp"
+        android:layout_weight="10"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"/>
+
+    <TextView
+        android:gravity="center"
+        android:text="Refined Fresh Chicken"
+        android:textSize="20sp"
+        android:layout_weight="50"
+        android:id="@+id/nombreproducto"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"/>
+
+    <TextView
+        android:gravity="center"
+        android:text="209.00"
+        android:textSize="20sp"
+        android:layout_weight="25"
+        android:id="@+id/precioproducto"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"/>
+    
+    <ImageView
+        android:src="@mipmap/ic_launcher"
+        android:layout_weight="25"
+        android:id="@+id/imagenproducto"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"/>
+
+</LinearLayout>

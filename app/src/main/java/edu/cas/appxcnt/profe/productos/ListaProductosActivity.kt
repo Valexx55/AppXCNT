@@ -9,6 +9,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.lifecycle.lifecycleScope
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import edu.cas.appxcnt.profe.Constantes
 import edu.cas.appxcnt.profe.R
 import edu.cas.appxcnt.profe.util.RedUtil
@@ -18,6 +20,7 @@ import kotlinx.coroutines.launch
 class ListaProductosActivity : AppCompatActivity() {
 
     lateinit var listaProductos: List<Producto>
+    lateinit var adapter: ProductosAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
@@ -76,8 +79,17 @@ class ListaProductosActivity : AppCompatActivity() {
     }
 
     fun mostrarListaProductos () {
-
+        //TODO mostrar la lista RX
+        //1 el xml de la fila / item
+        //2 viewHolder "fila reciclada"
+        //3 adapter "proveedor de datos"
+        //4 asocio al recycler su adapter
+        //5 indicamos al recycler su Layout (horizontal, vertical, formato tabla
+        this.adapter = ProductosAdapter(this.listaProductos)
+        val rV = findViewById<RecyclerView>(R.id.recview)
+        rV.adapter = this.adapter
+        rV.layoutManager = LinearLayoutManager(this, RecyclerView.VERTICAL, false)
     }
 
-    //
+
 }
