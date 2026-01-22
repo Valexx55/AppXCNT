@@ -3,6 +3,8 @@ package edu.cas.appxcnt.profe.productos
 import android.content.Context
 import android.os.Bundle
 import android.util.Log
+import android.view.View
+import android.widget.ProgressBar
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -50,7 +52,10 @@ class ListaProductosActivity : AppCompatActivity() {
                     listaProductos.forEach { producto ->
                         Log.d(Constantes.ETIQUETA_LOG, "${producto.toString()}")
                     }
+
                     mostrarListaProductos ()
+                    //oculto la progress bar una vez que se han mostrado los datos
+                    this@ListaProductosActivity.findViewById<ProgressBar>(R.id.progressBar).visibility = View.GONE
                 }catch (excepcion: Exception)
                 {
                     Log.e(Constantes.ETIQUETA_LOG, "Error al conectar con servidor de productos", excepcion)
@@ -89,7 +94,9 @@ class ListaProductosActivity : AppCompatActivity() {
         val rV = findViewById<RecyclerView>(R.id.recview)
         rV.adapter = this.adapter
         rV.layoutManager = LinearLayoutManager(this, RecyclerView.VERTICAL, false)
+        //rV.layoutManager = LinearLayoutManager(this, RecyclerView.HORIZONTAL, true)
     }
 
+    //TODO: haced una cabecera nombre de las columnas para este listado (ID Nombre PRECIO FOto) 10'
 
 }
