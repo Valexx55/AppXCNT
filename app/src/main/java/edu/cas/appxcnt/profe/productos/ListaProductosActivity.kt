@@ -110,11 +110,15 @@ class ListaProductosActivity : AppCompatActivity() {
         slider.valueTo = precioMasAlto
         slider.value = precioMasAlto
 
+        //slider.stepSize = 1f//nos dibuja en el slider ese rango, pero oojo porque debe cuadrar los valores mínimo y máximo asignados al slider
+
+        Log.d(Constantes.ETIQUETA_LOG, "Step size = ${slider.stepSize}")
+
         slider.visibility = View.VISIBLE
     }
 
     fun mostrarListaProductos () {
-        //TODO mostrar la lista RX
+
         //1 el xml de la fila / item
         //2 viewHolder "fila reciclada"
         //3 adapter "proveedor de datos"
