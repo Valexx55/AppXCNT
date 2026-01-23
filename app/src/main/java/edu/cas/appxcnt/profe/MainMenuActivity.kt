@@ -10,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.net.toUri
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import edu.cas.appxcnt.profe.perros.PerroActivity
 import edu.cas.appxcnt.profe.productos.ListaProductosActivity
 
 class MainMenuActivity : AppCompatActivity() {
@@ -44,7 +45,8 @@ class MainMenuActivity : AppCompatActivity() {
 //        }
 
         //val intent = Intent(this, ListaProductosActivity::class.java)
-        val intent = Intent(this, InflarActivity::class.java)
+        //val intent = Intent(this, InflarActivity::class.java)
+        val intent = Intent(this, PerroActivity::class.java)
         startActivity(intent)
         /**
          * TODO probar un intent para compartir mensajes por whatssapp (u otras apps quitando el package)
