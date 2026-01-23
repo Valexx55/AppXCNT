@@ -11,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.lifecycle.lifecycleScope
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.slider.Slider
@@ -129,8 +130,9 @@ class ListaProductosActivity : AppCompatActivity() {
         this.adapter = ProductosAdapter(this.listaProductos)
         val rV = findViewById<RecyclerView>(R.id.recview)
         rV.adapter = this.adapter
-        rV.layoutManager = LinearLayoutManager(this, RecyclerView.VERTICAL, false)
+        //rV.layoutManager = LinearLayoutManager(this, RecyclerView.VERTICAL, false)
         //rV.layoutManager = LinearLayoutManager(this, RecyclerView.HORIZONTAL, true)
+        rV.layoutManager = GridLayoutManager(this, 2)
     }
 
 

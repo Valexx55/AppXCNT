@@ -10,21 +10,37 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.net.toUri
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.drawerlayout.widget.DrawerLayout
+import com.google.android.material.navigation.NavigationView
+import edu.cas.appxcnt.profe.databinding.ActivityMainBinding
+import edu.cas.appxcnt.profe.databinding.ActivityMainMenuBinding
 import edu.cas.appxcnt.profe.perros.PerroActivity
 import edu.cas.appxcnt.profe.productos.ListaProductosActivity
 
 class MainMenuActivity : AppCompatActivity() {
-    //Aquí irá un menú lateral...
+
+
+    lateinit var drawerLayout: DrawerLayout //contendor del menú lateral
+    lateinit var navigationView: NavigationView//las opciones de ese menú
+
+    var menuVisble: Boolean=false //para controlar el estado de visibilidad de menú
+
+
+    lateinit var binding: ActivityMainMenuBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        this.binding = ActivityMainMenuBinding.inflate(layoutInflater)
         enableEdgeToEdge()
-        setContentView(R.layout.activity_main_menu)
+        setContentView(this.binding.root)
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+
+
+        //TODO completar el funcionamiento del menú lateral
 
         //val intent = Intent(this, ImcActivity::class.java)
         //val intent = Intent(this, AdivinaActivity::class.java)
@@ -44,9 +60,9 @@ class MainMenuActivity : AppCompatActivity() {
 //            Toast.makeText(this, "No se ha detectado un app para ver la página de la Xunta 😥  ", Toast.LENGTH_LONG ).show()
 //        }
 
-        //val intent = Intent(this, ListaProductosActivity::class.java)
+        val intent = Intent(this, ListaProductosActivity::class.java)
         //val intent = Intent(this, InflarActivity::class.java)
-        val intent = Intent(this, PerroActivity::class.java)
+        //val intent = Intent(this, PerroActivity::class.java)
         startActivity(intent)
         /**
          * TODO probar un intent para compartir mensajes por whatssapp (u otras apps quitando el package)

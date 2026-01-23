@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item android:title="EJEMPLOS BÁSICOS">
+        <menu>
+            <item
+                android:orderInCategory="1"
+                android:title="SUMAR"
+                android:icon="@drawable/outline_arrow_forward_ios_24"
+                app:showAsAction="always"/>
+
+            <item
+                android:orderInCategory="2"
+                android:title="IMC"
+                android:icon="@drawable/outline_arrow_forward_ios_24"
+                app:showAsAction="always"/>
+
+            <item
+                android:orderInCategory="3"
+                android:title="ADIVINA"
+                android:icon="@drawable/outline_arrow_forward_ios_24"
+                app:showAsAction="always"/>
+
+
+            <item
+                android:orderInCategory="4"
+                android:title="VISIBLIDAD"
+                android:icon="@drawable/outline_arrow_forward_ios_24"
+                app:showAsAction="always"/>
+
+            <item
+                android:orderInCategory="5"
+                android:title="BÚSQUEDA"
+                android:icon="@drawable/outline_arrow_forward_ios_24"
+                app:showAsAction="always"/>
+
+
+            <item
+                android:orderInCategory="6"
+                android:title="WEB ACTIVITY"
+                android:icon="@drawable/outline_arrow_forward_ios_24"
+                app:showAsAction="always"/>
+        </menu>
+
+    </item>
+
+    <item android:title="EJEMPLOS AVANZADOS">
+
+        <menu>
+            <item
+                android:orderInCategory="7"
+                android:title="INFLANDO"
+                android:icon="@drawable/outline_arrow_forward_ios_24"
+                app:showAsAction="always"/>
+
+            <item
+                android:orderInCategory="8"
+                android:title="PRODUCTOS"
+                android:icon="@drawable/outline_arrow_forward_ios_24"
+                app:showAsAction="always"/>
+
+            <item
+                android:orderInCategory="9"
+                android:title="PERROS"
+                android:icon="@drawable/outline_arrow_forward_ios_24"
+                app:showAsAction="always"/>
+
+        </menu>
+    </item>
+    <!-- también se puede programar un callback específico para cada opción/item con onclick-->
+    <!--  android:onClick="limpiar" -->
+
+</menu>
