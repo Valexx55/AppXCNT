@@ -43,7 +43,8 @@ class MainMenuActivity : AppCompatActivity() {
 //            Toast.makeText(this, "No se ha detectado un app para ver la página de la Xunta 😥  ", Toast.LENGTH_LONG ).show()
 //        }
 
-        val intent = Intent(this, ListaProductosActivity::class.java)
+        //val intent = Intent(this, ListaProductosActivity::class.java)
+        val intent = Intent(this, InflarActivity::class.java)
         startActivity(intent)
         /**
          * TODO probar un intent para compartir mensajes por whatssapp (u otras apps quitando el package)

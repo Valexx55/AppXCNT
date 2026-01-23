@@ -38,6 +38,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppXCNT">
         <activity
+            android:name=".InflarActivity"
+            android:exported="false" />
+        <activity
             android:name=".productos.ListaProductosActivity"
             android:exported="false" />
         <activity
