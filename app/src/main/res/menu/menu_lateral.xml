@@ -5,6 +5,12 @@
     <item android:title="EJEMPLOS BÁSICOS">
         <menu>
             <item
+                android:orderInCategory="0"
+                android:title="VERSIÓN"
+                android:icon="@drawable/outline_arrow_forward_ios_24"
+                app:showAsAction="always"/>
+
+            <item
                 android:orderInCategory="1"
                 android:title="SUMAR"
                 android:icon="@drawable/outline_arrow_forward_ios_24"

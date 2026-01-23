@@ -17,7 +17,7 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         app:headerLayout="@layout/cabecera_menu_desplegable"
-        app:menu="@menu/menu_imc"
+        app:menu="@menu/menu_lateral"
         />
 
 </androidx.drawerlayout.widget.DrawerLayout>
