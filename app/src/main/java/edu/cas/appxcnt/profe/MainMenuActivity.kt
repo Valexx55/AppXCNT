@@ -18,6 +18,7 @@ import edu.cas.appxcnt.profe.databinding.ActivityMainBinding
 import edu.cas.appxcnt.profe.databinding.ActivityMainMenuBinding
 import edu.cas.appxcnt.profe.perros.PerroActivity
 import edu.cas.appxcnt.profe.productos.ListaProductosActivity
+import edu.cas.appxcnt.profe.subactividades.FormularioModernoActivity
 
 class MainMenuActivity : AppCompatActivity() {
 
@@ -52,6 +53,7 @@ class MainMenuActivity : AppCompatActivity() {
                 7 -> Intent(this, InflarActivity::class.java)
                 8 -> Intent(this, ListaProductosActivity::class.java)
                 9 -> Intent(this, PerroActivity::class.java)
+                10 -> Intent(this, FormularioModernoActivity::class.java)
                 else /*0*/ -> Intent(this, MainActivity::class.java)
             }
             startActivity(intentDestino)
@@ -77,6 +79,7 @@ class MainMenuActivity : AppCompatActivity() {
      */
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
+            //este es un id reservado para la "flecha de ir hacia atrás" o la hamburguesa
             android.R.id.home -> {
                 Log.d(Constantes.ETIQUETA_LOG, "Botón hamburguesa tocado")
                 if (this.menuVisble) {

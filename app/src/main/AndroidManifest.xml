@@ -38,6 +38,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppXCNT">
         <activity
+            android:name=".subactividades.ColorSubActivity"
+            android:exported="false" />
+        <activity
+            android:name=".subactividades.FormularioModernoActivity"
+            android:exported="false" />
+        <activity
             android:name=".perros.PerroActivity"
             android:exported="false" />
         <activity
