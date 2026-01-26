@@ -57,6 +57,25 @@ class FormularioModernoActivity : AppCompatActivity() {
 
         }
 
+        //hacemos una validación en este textview moderno cuando pierde el foco
+        binding.editTextNombreFormulario.setOnFocusChangeListener (fun (view: View, tieneFoco: Boolean) {
+            if (tieneFoco)//==true
+            {
+                Log.d(Constantes.ETIQUETA_LOG, "La caja de nombre tiene el foco")
+            } else {
+                Log.d(Constantes.ETIQUETA_LOG, "La caja de nombre ha perdido el foco")
+                if (!esNombreValido(binding.editTextNombreFormulario.text.toString()))//esNombreValido==false
+                {
+                    binding.tilnombre.error = "Nombre incorrecto - longitud menor que 3"
+
+                } else {
+
+                    binding.tilnombre.isErrorEnabled = false//borro el rojo del error
+                }
+            }
+
+        })
+
     }
 
     fun seleccionarColorFavorito(view: View) {
@@ -68,8 +87,30 @@ class FormularioModernoActivity : AppCompatActivity() {
         //forma moderna
         lanzadorColorFavorito.launch(intentSelColor)
 
+
+
+
     }
 
+
+    fun esNombreValido (nombre:String): Boolean
+    {
+        var nombreValido: Boolean = false//declaro e inicializo
+
+        nombreValido = if (nombre.length>2)
+        {
+            true
+        } else {
+            false
+        }
+
+        //nombre VAL
+        //    nombreValido = (nombre.length > 2)
+
+        return nombreValido
+
+        //return nombre.length>2
+    }
     //startActivityForResult forma antigua
     override fun onActivityResult(
         requestCode: Int, //cod id la conversación
