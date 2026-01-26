@@ -2,31 +2,27 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".perros.PerroActivity">
+    android:layout_height="match_parent">
 
-    <Spinner
-        android:id="@+id/spinnerPerros"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="64dp"
+    <ImageView
+        android:id="@+id/fotoPerro"
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:theme="@style/SpinnerRaza"
-        />
+        android:layout_margin="24dp"
+        app:srcCompat="@drawable/ic_launcher_background" />
 
-    <Button
-        android:id="@+id/buscarFotosPerro"
+    <TextView
+        android:id="@+id/leyenda"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="256dp"
-        android:text="BUSCAR FOTOS"
-        android:onClick="buscarFotos"
+        android:layout_marginTop="64dp"
+        android:text="1 de 3"
+        android:textSize="22sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spinnerPerros" />
-
+        app:layout_constraintTop_toBottomOf="@+id/fotoPerro" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -7,4 +7,12 @@
 
     <style name="Theme.AppXCNT" parent="Base.Theme.AppXCNT" />
     <style name="Theme.AppXCNTAppBar" parent="Theme.Material3.DayNight" />
+
+    <style name="SpinnerRaza" parent="@android:style/Widget.TextView.SpinnerItem">
+        <item name="android:textSize">20sp</item>
+<!--        <item name="android:textColor">@color/mirojo</item>-->
+        <item name="textAllCaps">true</item>
+    </style>
+
+
 </resources>

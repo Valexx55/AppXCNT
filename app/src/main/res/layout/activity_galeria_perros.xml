@@ -7,4 +7,32 @@
     android:layout_height="match_parent"
     tools:context=".perros.GaleriaPerrosActivity">
 
+    <!-- Es como "el marco de las fotos/ del contenido
+     deslizante - swap -->
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/viewpager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        android:layout_marginTop="80dp"
+        android:layout_marginBottom="80dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/razaPerro"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="CANICHE"
+        android:textSize="24sp"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:textAllCaps="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/viewpager" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
