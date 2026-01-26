@@ -119,6 +119,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tiledad" />
 
+        <!-- Si tengo dos radio Button incluidos o agrupados por un radio Group como padre hace que solo pueda seleccionar 1 de manera exclusiva  -->
         <RadioGroup
             android:id="@+id/radioGroup"
             android:layout_width="wrap_content"
