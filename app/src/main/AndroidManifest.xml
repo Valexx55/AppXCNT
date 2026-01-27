@@ -38,6 +38,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppXCNT">
         <activity
+            android:name=".horayfecha.SeleccionHoraYFechaActivity"
+            android:exported="false" />
+        <activity
             android:name=".perros.GaleriaPerrosActivity"
             android:exported="false" />
         <activity
