@@ -1,6 +1,18 @@
+/*
+DIFERENCISA ENTRE PLUGIN Y ARTIFACT
+| Momento    | Plugin                  | Artifact                 |
+| ---------- | ----------------------- | ------------------------ |
+| Fase       | Build time              | Runtime / Compile time   |
+| Se ejecuta | Durante Gradle build    | En la app                |
+| Afecta a   | Proceso de construcción | Comportamiento de la app |
+| Añade      | Tasks, extensiones      | Clases, recursos         |
+| Vive en    | Gradle                  | APK / AAB                |
+*/
+
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
+    id("com.google.gms.google-services")
 }
 
 android {
@@ -52,4 +64,5 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+    implementation(platform("com.google.firebase:firebase-bom:34.8.0"))
 }

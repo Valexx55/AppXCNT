@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "291068671759",
+    "project_id": "appxcnt",
+    "storage_bucket": "appxcnt.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:291068671759:android:3124879d23fb12dbe7b07a",
+        "android_client_info": {
+          "package_name": "edu.cas.appxcnt.profe"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCCjh5vVfs5GHcsqWv9HMXc0Jiq6p7NfjE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
