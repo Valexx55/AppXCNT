@@ -3,6 +3,7 @@ package edu.cas.appxcnt.profe.perros
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
+import androidx.activity.addCallback
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -35,6 +36,48 @@ class GaleriaPerrosActivity : AppCompatActivity() {
         val razaPerro = intent!!.getStringExtra("RAZA") ?: ""
         consultarDogApi(razaPerro)
         binding.razaPerro.text = razaPerro
+
+        onBackPressedDispatcher.addCallback {
+            Log.d(
+                Constantes.ETIQUETA_LOG,
+                "El usuario toca el botón físico hacia atrás"
+            )
+            if (binding.viewpager.currentItem > 0)
+            {
+                Log.d(
+                    Constantes.ETIQUETA_LOG,
+                    "Estoy viendo una foto que es la segunda o posterior"
+                )
+                //me voy a la foto anterior
+                binding.viewpager.setCurrentItem(binding.viewpager.currentItem-1, true)
+            }
+                else {
+                Log.d(
+                    Constantes.ETIQUETA_LOG,
+                    "Estoy viendo la primera foto"
+                )
+                isEnabled = false //yo no gestiono el evento
+                onBackPressedDispatcher.onBackPressed()//gestión por defecto "finish"
+            }
+        }
+
+       //TODO detectar el evento de ir hacia atrás
+        //2. ir a la foto anterior o salir de la app en caso de la actividad
+
+
+
+        /*onBackPressedDispatcher.addCallback(this) {
+            if (binding.viewpager.currentItem > 0) {
+                binding.viewpager.setCurrentItem(
+                    binding.viewpager.currentItem - 1,
+                    true
+                )
+            } else {
+                // dejamos que el sistema cierre la Activity
+                isEnabled = false
+                onBackPressedDispatcher.onBackPressed()
+            }
+        }*/
     }
 
     fun consultarDogApi(razaPerro:String)
@@ -75,6 +118,7 @@ class GaleriaPerrosActivity : AppCompatActivity() {
             Toast.makeText(this, "No hay internet disponible", Toast.LENGTH_LONG).show()
         }
     }
+
 
 
     fun showImages(images: List<String>) {
