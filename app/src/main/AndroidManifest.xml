@@ -38,6 +38,18 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppXCNT">
         <activity
+            android:name=".realtimedbfb.ClientesFirebaseActivity"
+            android:exported="false" />
+        <activity
+            android:name=".autenticacionfb.LoginActivity"
+            android:exported="false" />
+        <activity
+            android:name=".autenticacionfb.RegistroActivity"
+            android:exported="false" />
+        <activity
+            android:name=".autenticacionfb.MainLoginActivity"
+            android:exported="false" />
+        <activity
             android:name=".horayfecha.SeleccionHoraYFechaActivity"
             android:exported="false" />
         <activity

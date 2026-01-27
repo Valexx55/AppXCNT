@@ -14,11 +14,13 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import com.google.android.material.navigation.NavigationView
+import edu.cas.appxcnt.profe.autenticacionfb.MainLoginActivity
 import edu.cas.appxcnt.profe.databinding.ActivityMainBinding
 import edu.cas.appxcnt.profe.databinding.ActivityMainMenuBinding
 import edu.cas.appxcnt.profe.horayfecha.SeleccionHoraYFechaActivity
 import edu.cas.appxcnt.profe.perros.PerroActivity
 import edu.cas.appxcnt.profe.productos.ListaProductosActivity
+import edu.cas.appxcnt.profe.realtimedbfb.ClientesFirebaseActivity
 import edu.cas.appxcnt.profe.subactividades.FormularioModernoActivity
 
 class MainMenuActivity : AppCompatActivity() {
@@ -56,6 +58,8 @@ class MainMenuActivity : AppCompatActivity() {
                 9 -> Intent(this, PerroActivity::class.java)
                 10 -> Intent(this, FormularioModernoActivity::class.java)
                 11 -> Intent(this, SeleccionHoraYFechaActivity::class.java)
+                12 -> Intent(this, MainLoginActivity::class.java)
+                13 -> Intent(this, ClientesFirebaseActivity::class.java)
                 else /*0*/ -> Intent(this, MainActivity::class.java)
             }
             startActivity(intentDestino)

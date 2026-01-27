@@ -15,6 +15,7 @@ retrofit = "2.12.0"
 converterGson = "2.12.0"
 kotlinxCoroutinesAndroid = "1.10.2"
 
+
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
@@ -28,6 +29,7 @@ glide = { group = "com.github.bumptech.glide", name = "glide", version.ref = "gl
 retrofit = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = "retrofit" }
 converter-gson = { group = "com.squareup.retrofit2", name = "converter-gson", version.ref = "converterGson" }
 kotlinx-coroutines-android = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-android", version.ref = "kotlinxCoroutinesAndroid" }
+firebase-auth-ktx = { group = "com.google.firebase", name = "firebase-auth-ktx"}
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
