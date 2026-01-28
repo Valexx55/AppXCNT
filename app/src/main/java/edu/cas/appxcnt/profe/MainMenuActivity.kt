@@ -18,6 +18,7 @@ import edu.cas.appxcnt.profe.autenticacionfb.MainLoginActivity
 import edu.cas.appxcnt.profe.databinding.ActivityMainBinding
 import edu.cas.appxcnt.profe.databinding.ActivityMainMenuBinding
 import edu.cas.appxcnt.profe.horayfecha.SeleccionHoraYFechaActivity
+import edu.cas.appxcnt.profe.notificaciones.Notificaciones
 import edu.cas.appxcnt.profe.perros.PerroActivity
 import edu.cas.appxcnt.profe.productos.ListaProductosActivity
 import edu.cas.appxcnt.profe.realtimedbfb.ClientesFirebaseActivity
@@ -60,9 +61,17 @@ class MainMenuActivity : AppCompatActivity() {
                 11 -> Intent(this, SeleccionHoraYFechaActivity::class.java)
                 12 -> Intent(this, MainLoginActivity::class.java)
                 13 -> Intent(this, ClientesFirebaseActivity::class.java)
+                14 -> {
+                    Notificaciones.lanzarNotificacion(this)
+                    null
+                } //Intent(this, ClientesFirebaseActivity::class.java)
                 else /*0*/ -> Intent(this, MainActivity::class.java)
             }
-            startActivity(intentDestino)
+            //si es != null el intent, que se lance la pantalla
+            intentDestino?.let {
+                startActivity(intentDestino)
+            }
+
             binding.drawer.closeDrawers()
             this.menuVisble = false
             //NOTA: IMPORTANTE https://kotlinlang.org/docs/returns.html

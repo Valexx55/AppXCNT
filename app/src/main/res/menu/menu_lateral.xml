@@ -98,6 +98,12 @@
                 android:icon="@drawable/outline_arrow_forward_ios_24"
                 app:showAsAction="always"/>
 
+            <item
+                android:orderInCategory="14"
+                android:title="LANZAR NOTI"
+                android:icon="@drawable/outline_arrow_forward_ios_24"
+                app:showAsAction="always"/>
+
         </menu>
     </item>
     <!-- también se puede programar un callback específico para cada opción/item con onclick-->
