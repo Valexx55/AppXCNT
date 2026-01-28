@@ -1,7 +1,9 @@
 package edu.cas.appxcnt.profe
 
+import android.Manifest
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import android.view.MenuItem
@@ -19,15 +21,19 @@ import edu.cas.appxcnt.profe.databinding.ActivityMainBinding
 import edu.cas.appxcnt.profe.databinding.ActivityMainMenuBinding
 import edu.cas.appxcnt.profe.horayfecha.SeleccionHoraYFechaActivity
 import edu.cas.appxcnt.profe.notificaciones.Notificaciones
+import edu.cas.appxcnt.profe.notificaciones.Notificaciones.crearCanalNotificacion
 import edu.cas.appxcnt.profe.perros.PerroActivity
 import edu.cas.appxcnt.profe.productos.ListaProductosActivity
 import edu.cas.appxcnt.profe.realtimedbfb.ClientesFirebaseActivity
 import edu.cas.appxcnt.profe.subactividades.FormularioModernoActivity
 import edu.cas.appxcnt.profe.tabs.TabsActivity
 
+
 class MainMenuActivity : AppCompatActivity() {
 
     var menuVisble: Boolean = false //para controlar el estado de visibilidad de menú
+
+    var permisosNotficaciones = true
 
 
     lateinit var binding: ActivityMainMenuBinding
@@ -63,7 +69,10 @@ class MainMenuActivity : AppCompatActivity() {
                 12 -> Intent(this, MainLoginActivity::class.java)
                 13 -> Intent(this, ClientesFirebaseActivity::class.java)
                 14 -> {
-                    Notificaciones.lanzarNotificacion(this)
+                    if (permisosNotficaciones)
+                    {
+                        Notificaciones.lanzarNotificacion(this)
+                    }
                     null
                 } //Intent(this, ClientesFirebaseActivity::class.java)
                 15 -> Intent(this, TabsActivity::class.java)
@@ -85,8 +94,51 @@ class MainMenuActivity : AppCompatActivity() {
         }
 
 
-        //mostrarAppsInstaladas()
+        //PEDIMOS PERMISOS PARA CREAR NOTIFICACIONES, OBLIGATORIO A PARTIR DEL API 13
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU)
+        {
+            requestPermissions(arrayOf(Manifest.permission.POST_NOTIFICATIONS), 600)
+        }
+
     }
+
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<out String>,
+        grantResults: IntArray
+    ) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+        if (grantResults[0]== PackageManager.PERMISSION_GRANTED)
+        {
+            Log.d(Constantes.ETIQUETA_LOG, "El usuario me da permisos para lanzar notificaciones")
+        } else {
+            Log.d(Constantes.ETIQUETA_LOG, "El usuario NO me da permisos para lanzar notificaciones")
+            permisosNotficaciones = false
+        }
+    }
+
+    /** OTRA FORMA DE PEDIR LOS PERMISOS PELIGROSOS **/
+    /**
+     *
+     * private val requestNotifPerm =
+     *     registerForActivityResult(ActivityResultContracts.RequestPermission()) { granted ->
+     *         // granted = true -> ya puedes postear notificaciones
+     *         // granted = false -> no puedes (salvo excepciones)
+     *     }
+     *
+     * fun ensureNotificationsPermission() {
+     *     if (Build.VERSION.SDK_INT < Build.VERSION_CODES.TIRAMISU) return
+     *
+     *     val granted = ContextCompat.checkSelfPermission(
+     *         this, Manifest.permission.POST_NOTIFICATIONS
+     *     ) == PackageManager.PERMISSION_GRANTED
+     *
+     *     if (!granted) {
+     *         requestNotifPerm.launch(Manifest.permission.POST_NOTIFICATIONS)
+     *     }
+     * }
+     *
+     */
 
 
 
