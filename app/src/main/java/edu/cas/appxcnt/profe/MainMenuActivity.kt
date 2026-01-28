@@ -23,6 +23,7 @@ import edu.cas.appxcnt.profe.perros.PerroActivity
 import edu.cas.appxcnt.profe.productos.ListaProductosActivity
 import edu.cas.appxcnt.profe.realtimedbfb.ClientesFirebaseActivity
 import edu.cas.appxcnt.profe.subactividades.FormularioModernoActivity
+import edu.cas.appxcnt.profe.tabs.TabsActivity
 
 class MainMenuActivity : AppCompatActivity() {
 
@@ -65,6 +66,7 @@ class MainMenuActivity : AppCompatActivity() {
                     Notificaciones.lanzarNotificacion(this)
                     null
                 } //Intent(this, ClientesFirebaseActivity::class.java)
+                15 -> Intent(this, TabsActivity::class.java)
                 else /*0*/ -> Intent(this, MainActivity::class.java)
             }
             //si es != null el intent, que se lance la pantalla

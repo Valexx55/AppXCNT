@@ -4,8 +4,7 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" /><!-- para poder lanzar notis en versiones 13 o superior -->
-
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" /> <!-- para poder lanzar notis en versiones 13 o superior -->
     <queries>
 
         <!-- Queeremos tener visibilidad a los navegadores de nuestra máquina desde esta app -->
@@ -29,7 +28,6 @@
         </intent>
     </queries>
 
-
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -39,6 +37,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppXCNT">
+        <activity
+            android:name=".tabs.TabsActivity"
+            android:exported="false" />
         <activity
             android:name=".realtimedbfb.ClientesFirebaseActivity"
             android:exported="false" />
