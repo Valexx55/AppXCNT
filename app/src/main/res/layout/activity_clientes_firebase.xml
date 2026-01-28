@@ -67,5 +67,28 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edadCliente" />
 
+    <Button
+        android:id="@+id/botonFormularioMostrarClientesFb"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/espacio_inter_formulario"
+        android:onClick="mostrarClientesFB"
+        android:text="MOSTRAR/CARGAR"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/botonFormularioClienteNuevo" />
+
+    <Button
+        android:id="@+id/botonFormularioBorrarUltimoFb"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/espacio_inter_formulario"
+        android:onClick="borrarUltimoPorClave"
+        android:text="BORRAR ÚLTIMO"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/botonFormularioMostrarClientesFb" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

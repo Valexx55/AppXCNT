@@ -19,6 +19,8 @@ import kotlin.toString
 const val URL_REAL_TIME_DABASE = "https://appxcnt-default-rtdb.europe-west1.firebasedatabase.app/"
 class ClientesFirebaseActivity : AppCompatActivity() {
 
+    var listaClientes = ArrayList<Cliente>()
+
     lateinit var databaseReference: DatabaseReference
     lateinit var binding: ActivityClientesFirebaseBinding
 
@@ -64,4 +66,78 @@ class ClientesFirebaseActivity : AppCompatActivity() {
             }
 
     }
+
+    fun mostrarClientesFB(view: View) {
+
+        Log.d(Constantes.ETIQUETA_LOG, "Mostrar clientes FB")
+        //this.databaseReference.child("clientes").child("clave").get()//con esto accedemos a un dato concreto por su clave
+        this.databaseReference.child("clientes").get().addOnSuccessListener {
+            datos ->
+            var clave = datos.key
+            Log.d(Constantes.ETIQUETA_LOG, "Clave $clave")
+            var lista = datos.value as Map<String, Map<String, Any>>
+            var entradas = lista.entries
+            var ncliens = entradas.size
+
+            Log.d(Constantes.ETIQUETA_LOG, "Hay $ncliens clientes")
+
+            var cliente: Cliente
+            //para cada cliente, obtenemos los datos
+            entradas.forEach { (claveId, valor) ->
+                Log.d(Constantes.ETIQUETA_LOG, "idCliente = $claveId")
+                Log.d(Constantes.ETIQUETA_LOG, "nombre = ${valor.get("nombre")}")
+                Log.d(Constantes.ETIQUETA_LOG, "email = ${valor.get("email")}")
+                Log.d(Constantes.ETIQUETA_LOG, "localidad = ${valor.get("localidad")}")
+                Log.d(Constantes.ETIQUETA_LOG, "edad = ${valor.get("edad")}")
+                cliente = Cliente(
+                    valor.get("edad") as Long,
+                    valor.get("localidad").toString(),
+                    valor.get("nombre").toString(),
+                    valor.get("email").toString(),
+                    claveId
+                )
+
+                listaClientes.add(cliente)
+                if (listaClientes.size == ncliens) {
+                    listaClientes.forEachIndexed { n, c -> Log.d(Constantes.ETIQUETA_LOG, "Cliente $n = $c.toString()")}
+                }
+            }
+        }
+    }
+
+
+    fun borrarUltimoPorClave (view: View){
+
+        if (listaClientes.size>0)
+        {
+            val claveUltimo = listaClientes.get(listaClientes.size-1).clave
+
+            Log.d(Constantes.ETIQUETA_LOG, "Clave ultimo = $claveUltimo")
+
+            claveUltimo.let {
+
+                Log.d(Constantes.ETIQUETA_LOG, "A eliminar cliente con id clave $claveUltimo")
+                val refCli =  FirebaseDatabase.getInstance(URL_REAL_TIME_DABASE).getReference("clientes/$claveUltimo")
+
+                refCli.removeValue()
+                    .addOnSuccessListener {
+                        Log.d(Constantes.ETIQUETA_LOG, "Cliente eliminado")
+                        listaClientes.removeAt(listaClientes.size-1)
+                        Toast.makeText(this, "CLIENTE ELIMINADO", Toast.LENGTH_LONG).show()
+                    }
+                    .addOnFailureListener { e ->
+                        Log.e(Constantes.ETIQUETA_LOG, "Error: ${e.message}")
+                    }
+
+            }
+        } else {
+            Log.d(Constantes.ETIQUETA_LOG, "Sin clientes que borrar")
+            Toast.makeText(this, "Sin clientes que borrar/n Clique mostrar primero", Toast.LENGTH_LONG).show()
+        }
+
+
+
+    }
+
+
 }
