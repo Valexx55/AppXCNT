@@ -3,12 +3,14 @@ package edu.cas.appxcnt.profe.blueooth
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import edu.cas.appxcnt.profe.Constantes
 import edu.cas.appxcnt.profe.R
 
 class BluethootActivity : AppCompatActivity() {
@@ -16,6 +18,7 @@ class BluethootActivity : AppCompatActivity() {
         //FORMA ANTIGUA Intent(Intent.ACTION_OPEN_DOCUMENT)
         registerForActivityResult(ActivityResultContracts.OpenDocument()) { uri ->
             uri?.let {
+                Log.d(Constantes.ETIQUETA_LOG, "URI = $uri")
                 sendFileViaBluetooth(it)
             }
         }
