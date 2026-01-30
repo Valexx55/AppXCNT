@@ -2,11 +2,18 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <!-- si está a true, obligamos a que el dispositivo tenga cámara de foto / videos
+     para poder instalarse esta app-->
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false" />
+
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" /> <!-- para poder lanzar notis en versiones 13 o superior -->
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" /> <!-- para poder lanzar notis en versiones 13 o superior -->
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" /> <!-- para poder lanzar notis en versiones 13 o superior -->
+    <uses-permission android:name="android.permission.CAMERA" /> <!-- para poder lanzar notis en versiones 13 o superior -->
     <queries>
 
         <!-- Queeremos tener visibilidad a los navegadores de nuestra máquina desde esta app -->
@@ -39,6 +46,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppXCNT">
+        <activity
+            android:name=".FotoActivity"
+            android:exported="false" />
         <activity
             android:name=".blueooth.BluethootActivity"
             android:exported="false" />
@@ -165,6 +175,16 @@
         <activity
             android:name=".MainActivity"
             android:exported="true" />
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="edu.cas.appxcnt.profe"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/rutas_provider" />
+        </provider>
     </application>
 
 </manifest>

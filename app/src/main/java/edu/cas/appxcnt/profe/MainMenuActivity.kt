@@ -83,6 +83,7 @@ class MainMenuActivity : AppCompatActivity() {
                 15 -> Intent(this, TabsActivity::class.java)
                 16 -> Intent(this, MapsActivity::class.java)
                 17 -> Intent(this, BluethootActivity::class.java)
+                18 -> Intent(this, FotoActivity::class.java)
                 else /*0*/ -> Intent(this, MainActivity::class.java)
             }
             //si es != null el intent, que se lance la pantalla
