@@ -9,10 +9,21 @@ DIFERENCISA ENTRE PLUGIN Y ARTIFACT
 | Vive en    | Gradle                  | APK / AAB                |
 */
 
+import java.util.Properties
+
+// Leer la clave desde local.properties
+val localProperties = Properties()
+val localPropertiesFile = rootProject.file("local.properties")
+if (localPropertiesFile.exists()) {
+    localProperties.load(localPropertiesFile.inputStream())
+}
+val mapApiKey: String = localProperties.getProperty("MAP_API_KEY") ?: ""
+
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     id("com.google.gms.google-services")
+    alias(libs.plugins.google.android.libraries.mapsplatform.secrets.gradle.plugin)
 }
 
 android {
@@ -27,6 +38,7 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        resValue("string", "map_api_key", mapApiKey)
     }
 
     buildTypes {
@@ -63,6 +75,8 @@ dependencies {
     implementation(libs.converter.gson)
     implementation("com.google.firebase:firebase-auth")
     implementation("com.google.firebase:firebase-database")
+    implementation(libs.play.services.maps)
+    implementation(libs.play.services.location)
     // implementation(libs.firebase.auth.ktx)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

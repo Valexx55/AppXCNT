@@ -4,4 +4,5 @@
     <string name="hintaltura">Intro altura m</string>
     <string name="botoncalculoimc">Calcular IMC</string>
     <string name="mensaje_resultado_suma">El resultado de sumar\n%1$d y %2$d es %3$d</string>
+    <string name="title_activity_maps">MapsActivity</string>
 </resources>

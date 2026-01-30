@@ -17,9 +17,11 @@ import androidx.core.view.WindowInsetsCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import com.google.android.material.navigation.NavigationView
 import edu.cas.appxcnt.profe.autenticacionfb.MainLoginActivity
+import edu.cas.appxcnt.profe.blueooth.BluethootActivity
 import edu.cas.appxcnt.profe.databinding.ActivityMainBinding
 import edu.cas.appxcnt.profe.databinding.ActivityMainMenuBinding
 import edu.cas.appxcnt.profe.horayfecha.SeleccionHoraYFechaActivity
+import edu.cas.appxcnt.profe.mapa.MapsActivity
 import edu.cas.appxcnt.profe.notificaciones.Notificaciones
 import edu.cas.appxcnt.profe.notificaciones.Notificaciones.crearCanalNotificacion
 import edu.cas.appxcnt.profe.perros.PerroActivity
@@ -49,6 +51,9 @@ class MainMenuActivity : AppCompatActivity() {
             insets
         }
 
+
+       // startActivity(Intent(this, BluethootActivity::class.java))
+
         this.supportActionBar?.setDisplayHomeAsUpEnabled(true)//dibujamos la fechita de ir hacia atrás
         this.supportActionBar?.setHomeAsUpIndicator(R.drawable.outline_menu_24) //ponemos la hamburguesa
 
@@ -76,6 +81,7 @@ class MainMenuActivity : AppCompatActivity() {
                     null
                 } //Intent(this, ClientesFirebaseActivity::class.java)
                 15 -> Intent(this, TabsActivity::class.java)
+                16 -> Intent(this, MapsActivity::class.java)
                 else /*0*/ -> Intent(this, MainActivity::class.java)
             }
             //si es != null el intent, que se lance la pantalla
